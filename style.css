@@ -97,6 +97,13 @@ body {
   width: 25%;
   padding-top: 20px;
 }
+.tool {
+  opacity: 0.5;
+}
+.tool:hover {
+  opacity: 1.0;
+  filter: brightness(120%);
+}
 img {
   pointer-events: none;
 }
