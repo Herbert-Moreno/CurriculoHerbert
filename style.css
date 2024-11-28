@@ -1,5 +1,5 @@
 * {
-  font-family: Arial;
+  font-family: Roboto;
   font-size: 24px;
 }
 
@@ -40,8 +40,8 @@ body {
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(to right, var(--primary-color) , var(--secundary-color));
-  width: fit-content;
-  height: fit-content;
+  width: 604px;
+  height: 465px;
   border-radius: 14px;
   flex-wrap: wrap;
   align-items: center;
@@ -72,12 +72,34 @@ body {
   font-size: 20px;
 }
 
+.TextoFerramentas {
+  background: -webkit-linear-gradient(#F2D3AB, #FE5ED0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ferramentas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 72px;
+  position: relative;
+  top: 85px;
+  left: 65px;
+}
+
+.guiferramenta {
+  position: absolute;
+}
 
 .foto {
   width: 25%;
   padding-top: 20px;
 }
-
+img {
+  pointer-events: none;
+}
 .typed {
   overflow: hidden;
   white-space: nowrap;
