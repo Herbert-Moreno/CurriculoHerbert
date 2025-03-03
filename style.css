@@ -175,14 +175,80 @@ body {
 .tools {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   width: 65%;
   height: 650px;
   margin: auto;
-  gap: 12%;
-  justify-content: center;
+  padding-top: 100px;
   align-items: center;
+
+  .tools_img_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1%;
+    height: 500px;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .tool_container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--primary-color);
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .tool_container:hover {
+    background: var(--quaternary-color);
+    border-style: solid;
+    border-color: var(--terciary-color);
+  }
+
+  .html_css {
+    width: 120px;
+  }
+
+  .python {
+    width: 60px;
+  }
+
+  .kotlin {
+    width: 50px;
+  }
+
+  .git {
+    width: 60px;
+  }
+
+  .c_lang {
+    width: 80px;
+  }
+
+  .visualstudio {
+    width: 60px;
+  }
+
+  .flutter {
+    width: 55px;
+  }
+
+  .supabase {
+    width: 60px;
+  }
+
+  .zig {
+    width: 60px;
+  }
 }
+
 @media only screen and (max-width: 800px) {
   .bg_main {
     background-color: var(--secundary-color);
