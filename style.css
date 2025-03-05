@@ -12,6 +12,7 @@
 
 body {
   background-color: var(--primary-color);
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -176,7 +177,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 65%;
+  width: 100%;
   height: 650px;
   margin: auto;
   padding-top: 100px;
@@ -186,7 +187,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 1%;
+    gap: 2%;
     height: 500px;
     width: 100%;
     justify-content: space-between;
@@ -211,7 +212,11 @@ body {
     border-style: solid;
     border-color: var(--terciary-color);
   }
-
+  
+  .tool_text {
+  font-size: 28px;
+  }
+  
   .html_css {
     width: 120px;
   }
@@ -249,7 +254,50 @@ body {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 1025px) {
+  .tool_container {
+    width: 145px !important;
+    height: 145px !important;
+  }
+  
+  .html_css {
+    width: 90px !important;
+  }
+
+  .python {
+    width: 50px !important;
+  }
+
+  .kotlin {
+    width: 50px !important;
+  }
+
+  .git {
+    width: 50px !important;
+  }
+
+  .c_lang {
+    width: 70px !important;
+  }
+
+  .visualstudio {
+    width: 50px !important;
+  }
+
+  .flutter {
+    width: 45px !important;
+  }
+
+  .supabase {
+    width: 50px !important;
+  }
+
+  .zig {
+    width: 60px !important;
+  }
+}
+
+@media (max-width: 800px) {
   .bg_main {
     background-color: var(--secundary-color);
     width: 99%;
@@ -272,9 +320,62 @@ body {
     margin: 2%;
     gap: 10px;
   }
+
+  .tool_text {
+    font-size: 22px !important;
+  }
+  
+  .img_container {
+    margin-top: 50px;
+  }       
+  
+  .tools {
+    margin-top: 150px;  
+  }
+  
+  .tool_container {
+    width: 125px !important;
+    height: 125px !important;
+  }
+  
+  .html_css {
+    width: 90px !important;
+  }
+
+  .python {
+    width: 50px !important;
+  }
+
+  .kotlin {
+    width: 50px !important;
+  }
+
+  .git {
+    width: 50px !important;
+  }
+
+  .c_lang {
+    width: 70px !important;
+  }
+
+  .visualstudio {
+    width: 50px !important;
+  }
+
+  .flutter {
+    width: 45px !important;
+  }
+
+  .supabase {
+    width: 50px !important;
+  }
+
+  .zig {
+    width: 60px !important;
+  }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .bg_main {
     background-color: var(--secundary-color);
     width: 99%;
@@ -283,7 +384,7 @@ body {
     margin-top: 9%;
     border-radius: 20px;
   }
-    
+  
   .go_up {
     left: 100%;
   }
@@ -388,5 +489,110 @@ body {
         opacity: 1;
       }
     }
+  }
+
+  .img_container {
+    margin-top: 10px;
+  }       
+  
+  .tools {
+    margin-top: 10px;
+  }
+  
+  .tool_text {
+  font-size: 20px !important;
+  }
+  
+  .tool_container {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .html_css {
+    width: 80px !important;
+  }
+
+  .python {
+    width: 40px !important;
+  }
+
+  .kotlin {
+    width: 40px !important;
+  }
+
+  .git {
+    width: 50px !important;
+  }
+
+  .c_lang {
+    width: 60px !important;
+  }
+
+  .visualstudio {
+    width: 40px !important;
+  }
+
+  .flutter {
+    width: 35px !important;
+  }
+
+  .supabase {
+    width: 40px !important;
+  }
+
+  .zig {
+    width: 50px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .tool_text {
+    font-size: 15px !important;
+  }
+
+  .tools_img_container {
+    justify-content: center !important;
+    align-content: center !important;
+  }
+  
+  .tool_container {
+    width: 75px !important;
+    height: 75px !important;
+  }
+  
+  .html_css {
+    width: 60px !important;
+  }
+
+  .python {
+    width: 30px !important;
+  }
+
+  .kotlin {
+    width: 30px !important;
+  }
+
+  .git {
+    width: 30px !important;
+  }
+
+  .c_lang {
+    width: 30px !important;
+  }
+
+  .visualstudio {
+    width: 30px !important;
+  }
+
+  .flutter {
+    width: 25px !important;
+  }
+
+  .supabase {
+    width: 30px !important;
+  }
+
+  .zig {
+    width: 40px !important;
   }
 }
