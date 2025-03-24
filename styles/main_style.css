@@ -36,6 +36,10 @@ body {
   border-radius: 30px;
 }
 
+.bg_projetos {
+  display: none;
+}
+
 .bg_main {
   background-color: var(--secundary-color);
   width: 93%;

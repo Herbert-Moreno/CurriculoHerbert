@@ -5,15 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
     <title>Curriculo Herbert</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/main_style.css">
+    <link rel="stylesheet" href="./styles/projetos_styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=download"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        function show(shown, hidden) {
+          document.getElementById(shown).style.display='block';
+          document.getElementById(hidden).style.display='none';
+          return false;
+        }
+    </script>
 </head>
+
 <body>
-    <div class="main">
-        <a href="#Info_top_page" class="go_up"><i class="material-icons">arrow_upward</i></a>
+    <div class="main" id="main">
+        <a href="#" class="go_up"><i class="material-icons">arrow_upward</i></a>
         <div class="bg_main">
             <section class="Details_Border" id="Info_top_page">
                 <div class="Info_details">
@@ -37,9 +45,9 @@
                         <a href="src\Curriculo.pdf" download="src\Curriculo.pdf" class="info_bnt_link">
                             Curriculo<i class="material-icons">download</i>
                         </a>
-                        <!--<a href="" class="info_bnt_link">
+                        <a href="#" onclick="return show('projetos','main');" class="info_bnt_link">
                             Projetos<i class="material-icons">tips_and_updates</i>
-                        </a>-->
+                        </a>
                     </div>
                     <nav class="links_nav">
                         <a href="https://www.linkedin.com/in/jos%C3%A9-herbert-rodrigues-moreno-784274289/">
@@ -97,6 +105,40 @@
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+
+    <div class="bg_projetos" id="projetos">
+        <a href="#" class="go_back" onclick="return show('main','projetos');"><i class="material-icons">arrow_backwards</i></a>
+        <div class="projects_container_row">
+            <div class="project_container">
+                <img src="src\projects/weather.png" class="project_img">
+                <div class="project_row">
+                    <p style="color: white; text-align: center; font-size: 13px;" class="project_text">App de Clima: Aplicativo de previsão do tempo<br>desenvolvido em Flutter e Python</p>
+                    <a href="https://github.com/Herbert-Moreno/Projeto_App_Clima" class="link_project"><i class="material-icons">language</i></a>
+                </div>
+            </div>
+            <div class="project_container">
+                <img src="src\projects/todo.png" class="project_img">
+                <div class="project_row">
+                    <p style="color: white; text-align: center; font-size: 13px;" class="project_text">App de Lista de Tarefa: Aplicativo para tarefas<br>desenvolvido em Flutter</p>
+                    <a href="https://github.com/Herbert-Moreno/Projeto_De_Lista_de_Tarefas" class="link_project"><i class="material-icons">language</i></a>
+                </div>
+            </div>
+            <div class="project_container">
+                <img src="src\projects/asteroid.png" class="project_img">
+                <div class="project_row">
+                    <p style="color: white; text-align: center; font-size: 13px;" class="project_text">Asteroids em C: Jogo do asteroids<br>desenvolvido em C</p>
+                    <a href="https://github.com/Herbert-Moreno/Asteroids_escrito_em_C" class="link_project"><i class="material-icons">language</i></a>
+                </div>
+            </div>
+            <div class="project_container">
+                <img src="src\projects/pong.png" class="project_img">
+                <div class="project_row">
+                    <p style="color: white; text-align: center; font-size: 13px;" class="project_text">Pong: Jogo do Pong<br>desenvolvido em C</p>
+                    <a href="https://github.com/Herbert-Moreno/Pong_Escrito_em_C" class="link_project"><i class="material-icons">language</i></a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
