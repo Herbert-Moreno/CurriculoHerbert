@@ -25,6 +25,7 @@
 	"dependencies": {
 		"@threlte/core": "^8.1.4",
 		"@threlte/extras": "^9.4.5",
+		"@threlte/gltf": "^3.0.1",
 		"daisyui": "^5.0.50",
 		"svelte-awesome": "^3.3.5"
 	}

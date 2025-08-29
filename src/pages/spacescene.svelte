@@ -1,26 +1,49 @@
-<script>
+<script lang="ts">
   import { T } from '@threlte/core';
-  import { FakeGlowMaterial, interactivity, MeshLineMaterial, OrbitControls } from '@threlte/extras'
+  import { interactivity, OrbitControls } from '@threlte/extras';
+  import simpleFrag from '../shaders/SimpleFrag.glsl?raw';
+  import simpleVert from '../shaders/SimpleVert.glsl?raw';
+  import Planet from '../components/planet.svelte';
   
   interactivity();
-  let scale = $state(1);
+  let scale = $state(1.3);
+  let moon_scale = $state(0.2);
 </script>
 
 <T.PerspectiveCamera
   makeDefault
   position={[5, 5, 5]}
 >
-  <OrbitControls />
+  <OrbitControls
+    enableZoom={false}
+    enablePan={false}
+    enableRotate={true}
+  />
 </T.PerspectiveCamera>
-<T.Mesh
+
+<Planet 
   scale = {scale}
+  position = {[0,1,3.2]}
   onpointerenter={() => {
-    scale = 2
+    scale = 1.5
   }}
   onpointerleave={() => {
-    scale = 1
+    scale = 1.3
+  }}/>
+
+<T.Mesh
+  scale = {moon_scale}
+  position = {[0,2,5]}
+  onpointerenter={() => {
+    moon_scale = 0.3
+  }}
+  onpointerleave={() => {
+    moon_scale = 0.2
   }}
 >
-  <T.BoxGeometry/>
-  <T.MeshBasicMaterial/>
+  <T.SphereGeometry attach="geometry"/>
+  <T.ShaderMaterial
+    fragmentShader={simpleFrag}
+    vertexShader={simpleVert}
+  />
 </T.Mesh>

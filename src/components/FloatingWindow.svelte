@@ -11,7 +11,7 @@
 
 <div class={`card bg-[var(--Secundary-color)] rounded-xl justify-center z-2 ${placement} ${position}`}
     style="width: {width}rem; height: {height}rem;">
-    <div class="p-3 items-center justify-center">
+    <div class=" w-full h-full p-3 items-center justify-center">
         {#if child}
             {@render child(childProps)}
         {/if}

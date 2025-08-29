@@ -1,9 +1,8 @@
 <script lang="ts">
     import type { IconType } from "svelte-awesome/components/Icon.svelte";
-    import { github, instagram, linkedin, whatsapp,  } from "svelte-awesome/icons"
+    import { github, instagram, linkedin, whatsapp } from "svelte-awesome/icons"
     import FloatingWindow from "../components/FloatingWindow.svelte";
-    import Header from "../components/Header.svelte";
-    import SocialButton from "../components/SocialButton.svelte";
+    import SquareButton from "../components/SquareButton.svelte";
     import SpatialWindow from "../components/SpatialWindow.svelte";
     import SpaceScene from "./spacescene.svelte";
     import Icon from 'svelte-awesome';
@@ -12,9 +11,8 @@
         window.location.href = link
     }
 </script>
-<!--absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2-->
-<div class="flex flex-col w-screen h-screen justify-center items-center gap-3">
-    <Header/>
+
+<div class="flex flex-col w-fit h-fit justify-center items-center gap-3 ml-auto mr-auto mt-[1.5%]">
     <section class="flex flex-row gap-4">
         <div class="flex flex-1 flex-nowrap">
             <FloatingWindow 
@@ -31,7 +29,7 @@
             height="19" 
             placement=" " 
             position=" "
-            child={()=>{}}
+            child={Avatar}
             />
             <FloatingWindow 
             width="20" 
@@ -50,6 +48,9 @@
         </div>
     </section>
 </div>
+
+{#snippet Avatar()}
+{/snippet}
 
 {#snippet Sklls()}
     <div class="w-full grid grid-cols-3 gap-2 justify-items-center">
@@ -76,13 +77,13 @@
 
 {#snippet SocialMedia()}
     <div class="flex flex-row gap-6 h-full w-full justify-center">
-        <SocialButton icon={icons} iconProp={linkedin} onClick={()=>{goToSocialMedia("https://www.linkedin.com/in/jos%C3%A9-herbert-rodrigues-moreno-784274289/")}}/>
-        <SocialButton icon={icons} iconProp={github} onClick={()=>{goToSocialMedia("https://github.com/Herbert-Moreno")}}/>
-        <SocialButton icon={icons} iconProp={whatsapp} onClick={()=>{goToSocialMedia("https://api.whatsapp.com/send?phone=5588920003887")}}/>
-        <SocialButton icon={icons} iconProp={instagram} onClick={()=>{goToSocialMedia("https://www.instagram.com/herbert_xdr/")}}/>
+        <SquareButton icon={icons} iconProp={linkedin} onClick={()=>{goToSocialMedia("https://www.linkedin.com/in/jos%C3%A9-herbert-rodrigues-moreno-784274289/")}}/>
+        <SquareButton icon={icons} iconProp={github} onClick={()=>{goToSocialMedia("https://github.com/Herbert-Moreno")}}/>
+        <SquareButton icon={icons} iconProp={whatsapp} onClick={()=>{goToSocialMedia("https://api.whatsapp.com/send?phone=5588920003887")}}/>
+        <SquareButton icon={icons} iconProp={instagram} onClick={()=>{goToSocialMedia("https://www.instagram.com/herbert_xdr/")}}/>
     </div>
     {#snippet icons(icon: IconType)}
-        <Icon data="{icon}" scale={2}></Icon>
+        <Icon data={icon} scale={2}></Icon>
     {/snippet}
 {/snippet}
 
