@@ -1,3 +1,6 @@
+uniform float posterizer_value;
+uniform float cloud_random_gen;
+
 varying vec3 vPosition;
 
 // 2D Random
@@ -42,16 +45,14 @@ vec3 posterize(vec3 color, float levels) {
 }
 
 void main() {
-    float depth = gl_FragCoord.y;
-    
-    vec2 pos = vec2(vPosition*5.0);
-    float n = noise(pos);
+    vec2 pos = vPosition.xy;
+    float n = noise(pos * cloud_random_gen);
 
-    vec3 mixed = mix(vec3(1), vec3(0), depth);
-    mixed = posterize(vec3(n), 8.0);
-    if (distance(mixed.rgb, vec3(0)) <= 0.8) {
+    vec3 color_post = posterize(vec3(n), posterizer_value);
+
+    if (distance(color_post.rgb, vec3(0)) <= 0.7) {
         discard;
     } else {
-        gl_FragColor = vec4(mixed, 1.0);
+        gl_FragColor = vec4(color_post, 1.0);
     }
 }

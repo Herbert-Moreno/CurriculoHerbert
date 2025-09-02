@@ -1,10 +1,13 @@
+uniform vec3 uplanet_water;
+uniform vec3 uplanet_grass;
+uniform float posterizer_value;
+uniform float planet_random_gen;
+
 varying vec3 vPosition;
 
-// 2D Random
+// 2D Random default: vec2(12.9898,78.233)
 float random (in vec2 st) {
-    return fract(sin(dot(st.xy,
-                         vec2(12.9898,78.233)))
-                 * 43758.5453123);
+    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
 }
 
 // 2D Noise based on Morgan McGuire @morgan3d
@@ -42,16 +45,24 @@ vec3 posterize(vec3 color, float levels) {
 }
 
 void main() {
-    float depth = vPosition.x * 2;
-    
-    vec2 pos = vec2(gl_FragCoord.x/depth);
-    float n = noise(pos);
+    vec3 pos = vec3(vPosition);
+    float r = length(pos);
+    float theta = acos(pos.z / r); // polar angle
+    float phi = atan(pos.y, pos.x); // azimuthal angle
 
-    vec3 mixed = mix(vec3(1), vec3(0), depth);
-    mixed = posterize(vec3(n), 8.0);
-    if (distance(mixed.rgb, vec3(0)) <= 0.8) {
-        gl_FragColor = vec4(0, 0, mixed.b, 1.0);
+    // Map spherical coordinates to 2D for noise
+    vec2 st = vec2(theta / 3.14159265, phi / (2.0 * 3.14159265));
+    
+    float n = noise(st * planet_random_gen);
+
+    vec3 color_post = posterize(vec3(n), posterizer_value);
+    
+    vec3 planet_water = posterize(uplanet_water, posterizer_value);
+    vec3 planet_grass = posterize(uplanet_grass, posterizer_value);
+
+    if (distance(color_post.rgb, vec3(0)) <= 0.7) {
+        gl_FragColor = vec4(mix(planet_water, color_post, 0.45), 1.0);
     } else {
-        gl_FragColor = vec4(0, mixed.g, 0, 1.0);
+        gl_FragColor = vec4(mix(planet_grass, color_post, 0.45), 1.0);
     }
 }
