@@ -2,6 +2,8 @@
     import SpatialWindow from "../../components/SpatialWindow.svelte";
     import SpaceScene from "../../pages/spacescene.svelte";
     import FloatingWindow from "../../components/FloatingWindow.svelte";
+    export const prerender = true;
+
 </script>
 
 <div class="flex flex-1 flex-nowrap">
