@@ -11,6 +11,7 @@
 <T.PerspectiveCamera
   makeDefault
   position={[5, 5, 5]}
+  rotation={[0, 0, 0]}
 >
   <OrbitControls
     enableZoom={false}

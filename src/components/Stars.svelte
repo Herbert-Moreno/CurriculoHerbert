@@ -23,17 +23,10 @@ Command: npx @threlte/gltf@3.0.1 .\Stars.glb
 
     <T.Mesh
       geometry={gltf.nodes.Stars.geometry}
-      position={[-25.44, -4.41, -39.47]}
-      rotation={[1.6, 0.28, -0.44]}
-      scale={2.27}>
+      position={[-2.5,-12.0,2]}
+      rotation={[-0.2,-0.4,0.3]}
+      scale={1.5}>
         <T.MeshBasicMaterial color="white"/>
-    </T.Mesh>
-    <T.Mesh
-      geometry={gltf.nodes.Stars_1.geometry}
-      position={[-20.45, -40.97, -22.12]}
-      rotation={[1.37, 0.58, -0.42]}
-      scale={2.27}>
-      <T.MeshBasicMaterial color="white"/>
     </T.Mesh>
   {:catch err}
     {@render error?.({ error: err })}
