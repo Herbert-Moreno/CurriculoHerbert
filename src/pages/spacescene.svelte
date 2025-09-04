@@ -1,7 +1,7 @@
 <script lang="ts">
   import { T } from '@threlte/core';
   import { interactivity, OrbitControls } from '@threlte/extras';
-  import Planet from '../components/Planet.svelte';
+  import Planet from '../components/planet.svelte';
   import Stars from '../components/Stars.svelte';
   
   interactivity();
