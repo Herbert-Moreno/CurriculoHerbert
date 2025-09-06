@@ -50,7 +50,7 @@ void main() {
 
     vec3 color_post = posterize(vec3(n), posterizer_value);
 
-    if (distance(color_post.rgb, vec3(0)) <= 0.7) {
+    if (distance(color_post.rgb, vec3(0.01)) <= 0.75) {
         discard;
     } else {
         gl_FragColor = vec4(color_post, 1.0);

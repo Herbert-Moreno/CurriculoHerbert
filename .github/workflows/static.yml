@@ -27,7 +27,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Build site
-        run: |
+        run:
           bun run build
           touch build/.nojekyll
 
