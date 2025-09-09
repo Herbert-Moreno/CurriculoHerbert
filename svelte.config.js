@@ -12,8 +12,8 @@ const config = {
 	kit: {
     adapter: adapter(),
 	paths: {
-      base: dev ? '' : '/'   // coloque o nome do repo aqui
-    }
+	  base: dev ? '' : '/CurriculoHerbert'   // coloque o nome do repo aqui, sem barra no final
+	}
   }
 };
 
