@@ -20,10 +20,10 @@ void main() {
 
     if (isSideways) {
         depth = vPosition.x;
-        mixed = mix(uColor, vec3(0), depth);
+        mixed = mix(uColor, uColor/1.8, depth);
     } else {
         depth = vPosition.y;
-        mixed = mix(vec3(0), uColor, depth);
+        mixed = mix(uColor/1.8, uColor, depth);
     }
 
     mixed = posterize(mixed, uPosterizeValue);

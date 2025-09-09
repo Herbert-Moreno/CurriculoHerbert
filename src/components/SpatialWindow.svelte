@@ -1,9 +1,9 @@
 <script>
-    import { Canvas } from '@threlte/core'
+    import { Canvas } from '@threlte/core';
     
     let { 
         scene, 
-        sceneProps = {} 
+        sceneProps = {}
         } = $props();
 </script>
 

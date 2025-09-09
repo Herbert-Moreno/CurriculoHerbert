@@ -1,7 +1,7 @@
 uniform sampler2D uTexture;
 uniform float uPosterizeValue;
 
-varying vec2 vUv; // Coordenadas de textura padrão do Three.js
+varying vec2 vUv;
 varying vec3 vPosition;
 
 vec4 posterize(vec4 color, float levels) {
@@ -19,5 +19,5 @@ void main() {
     vec4 texColor = texture2D(uTexture, vUv); // Amostra a textura
     vec4 poster = posterize(texColor, uPosterizeValue);
 
-    gl_FragColor = poster;
+    gl_FragColor = poster*1.3;
 }

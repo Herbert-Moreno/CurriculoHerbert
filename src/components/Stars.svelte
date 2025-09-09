@@ -4,12 +4,12 @@ Command: npx @threlte/gltf@3.0.1 .\Stars.glb
 -->
 
 <script>
-  import { T } from '@threlte/core'
-  import { useGltf } from '@threlte/extras'
+  import { T } from '@threlte/core';
+  import { useGltf, FakeGlowMaterial } from '@threlte/extras';
 
-  let { fallback=()=>{}, error=()=>{}, children=()=>{}, ref = $bindable(), ...props } = $props()
+  let { fallback=()=>{}, error=()=>{}, children=()=>{}, ref = $bindable(), ...props } = $props();
 
-  const gltf = useGltf('/Stars.glb')
+  const gltf = useGltf(`${import.meta.env.BASE_URL}Stars.glb`);
 </script>
 
 <T.Group
@@ -20,14 +20,15 @@ Command: npx @threlte/gltf@3.0.1 .\Stars.glb
   {#await gltf}
     {@render fallback?.()}
   {:then gltf}
-
+    <!--Stars-->
     <T.Mesh
       geometry={gltf.nodes.Stars.geometry}
       position={[-2.5,-12.0,2]}
       rotation={[-0.2,-0.4,0.3]}
       scale={1.5}>
-        <T.MeshBasicMaterial color="white"/>
+        <T.MeshBasicMaterial color="white" />
     </T.Mesh>
+
   {:catch err}
     {@render error?.({ error: err })}
   {/await}

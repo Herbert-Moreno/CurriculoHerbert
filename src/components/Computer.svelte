@@ -4,18 +4,18 @@ Command: npx @threlte/gltf@3.0.1 .\Computer.glb
 -->
 
 <script>
-  import { T } from '@threlte/core'
-  import { useGltf, useTexture } from '@threlte/extras'
-  import SimpleVert from '../shaders/SimpleVert.glsl?raw'
-  import PosterizedColor from '../shaders/PosterizedColorFrag.glsl?raw'
-  import ComputerFrag from '../shaders/ComputerFrag.glsl?raw'
-  import ComputerVert from '../shaders/ComputerVert.glsl?raw'
+  import { T } from '@threlte/core';
+  import { useGltf, useTexture } from '@threlte/extras';
+  import SimpleVert from '../shaders/SimpleVert.glsl?raw';
+  import PosterizedColor from '../shaders/PosterizedColorFrag.glsl?raw';
+  import ComputerFrag from '../shaders/ComputerFrag.glsl?raw';
+  import ComputerVert from '../shaders/ComputerVert.glsl?raw';
 
-  let { fallback=()=>{}, error=()=>{}, children=()=>{}, ref = $bindable(), ...props } = $props()
+  let { fallback=()=>{}, error=()=>{}, children=()=>{}, ref = $bindable(), ...props } = $props();
 
-  const texture = useTexture('/ComputerTexture.png')
+  const texture = useTexture(`${import.meta.env.BASE_URL}ComputerTexture.png`);
 
-  const gltf = useGltf('/Computer.glb')
+  const gltf = useGltf(`${import.meta.env.BASE_URL}Computer.glb`);
 </script>
 
 <T.Group
@@ -26,55 +26,63 @@ Command: npx @threlte/gltf@3.0.1 .\Computer.glb
   {#await gltf}
     {@render fallback?.()}
   {:then gltf}
+  <!--Laptop-->
     <T.Mesh
       geometry={gltf.nodes.Laptop_Screen.geometry}
-      position={[-0.12, -0.05, 1.35]}
-      rotation={[1.47, 0, 0]}
-      scale={7.94}>
+      position={[-0.26, -0.04, -0.86]}>
       <T.MeshBasicMaterial/>
     </T.Mesh>
     <T.Mesh
       geometry={gltf.nodes.Laptop.geometry}
-      position={[-0.13, -0.01, 0.66]}
-      rotation={[-0.19, 0, 0]}
-      scale={0.07}>
+      position={[-0.26, -0.04, -0.86]}>
       <T.ShaderMaterial
-      uniforms={{
-        uTexture: { value: $texture },
-        uPosterizeValue: { value: 8 }
-      }}
-      vertexShader={ComputerVert}
-      fragmentShader={ComputerFrag}
       attributes={{
         uv: gltf.nodes.Laptop.geometry.attributes.uv
       }}
+      oncreate={
+        ()=>{
+          if($texture) $texture.flipY = false;
+        }
+      }
+      uniforms={{
+        uTexture: { value: $texture },
+        uPosterizeValue: { value: 8 },
+      }}
+      vertexShader={ComputerVert}
+      fragmentShader={ComputerFrag}
       />
     </T.Mesh>
     <T.Mesh
       geometry={gltf.nodes.Laptop_Outline.geometry}
-      position={[-0.13, 0, 0.66]}
-      rotation={[-0.19, 0, 0]}
-      scale={[0.0705, 0.085, 0.0715]}>
+      position={[-0.26, -0.04, -0.86]}
+      scale={1.01}>
       <T.MeshBasicMaterial color="white"/>
     </T.Mesh>
+
+    <!--Table-->
     <T.Mesh
       geometry={gltf.nodes.Table.geometry}
-      position={[0.3, -0.1, 0.48]}
-      rotation={[-0.19, 0, 0]}
-      scale={2.26}>
-      <T.MeshBasicMaterial color={0x242C3F}/>
+      position={[0.3, -0.1, 0.48]}>
+      <T.MeshBasicMaterial color={0x402a99}/>
     </T.Mesh>
     <T.Mesh
+      geometry={gltf.nodes.Background.geometry}
+      position={[0.3, -0.1, 0.48]}>
+      <T.MeshBasicMaterial color={0xa99cdb}/>
+    </T.Mesh>
+    
+    <!--Coffee Cup-->
+    <T.Mesh
       geometry={gltf.nodes.Cup.geometry}
-      position={[1.89, -0.16, 0.39]}
-      rotation={[-0.19, 0.62, 0]}
+      position={[2.21, -0.15, -0.46]}
+      rotation={[0, 0.73, 0]}
       scale={0.39}>
       <T.ShaderMaterial
         uniforms={
           {
             uColor: {value: [1.0, 1.0, 1.0]},
             uPosterizeValue: {value: 8},
-            isSideways: {value: false},
+            isSideways: {value: true},
           }
         }
         vertexShader={SimpleVert}
@@ -83,21 +91,190 @@ Command: npx @threlte/gltf@3.0.1 .\Computer.glb
     </T.Mesh>
     <T.Mesh
       geometry={gltf.nodes.Cup_Outline.geometry}
-      position={[1.89, -0.15, 0.39]}
-      rotation={[-0.2, 0.59, -0.01]}
-      scale={0.39}>
+      position={[2.21, -0.14, -0.46]}
+      rotation={[0, 0.73, 0]}
+      scale={0.4}>
       <T.MeshBasicMaterial color="white"/>
     </T.Mesh>
     <T.Mesh
       geometry={gltf.nodes.Coffee.geometry}
-      position={[1.89, -0.15, 0.39]}
-      rotation={[-0.2, 0.59, -0.01]}
+      position={[2.21, -0.05, -0.46]}
+      rotation={[0, 0.73, 0]}
       scale={0.4}>
       <T.ShaderMaterial
         uniforms={
           {
             uColor: {value: [0.55, 0.33, 0.0]},
             uPosterizeValue: {value: 8},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+    <T.Mesh
+    geometry={gltf.nodes.Coffee_heat.geometry}
+    position={[2.21, 0.03, -0.46]}
+    rotation={[-0.36, 1.07, 0.19]}
+    scale={0.23}>
+      <T.MeshBasicMaterial color="white"/>
+    </T.Mesh>
+
+    <!--Papers-->
+    <T.Mesh
+      geometry={gltf.nodes.Paper_yellow.geometry}
+      position={[0.89, 1.54, 0.25]}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [1.0, 1.0, 0.3]},
+            uPosterizeValue: {value: 8},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Paper_green.geometry}
+      position={[-1.65, 0.25, 0.09]}
+      rotation={[0.19, -0.03, 0]}
+      scale={0.93}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [0.3, 1.0, 0.3]},
+            uPosterizeValue: {value: 8},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Paper_red.geometry}
+      position={[-1.48, 0.07, 0.04]}
+      rotation={[0.2, -0.15, 0.02]}
+      scale={0.93}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [1.0, 0.3, 0.3]},
+            uPosterizeValue: {value: 8},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+<T.Mesh
+      geometry={gltf.nodes.Paper_green_Outline.geometry}
+      position={[-1.65, 0.25, 0.09]}
+      rotation={[0.19, -0.03, 0]}
+      scale={0.97}>
+      <T.MeshBasicMaterial color="white"/>
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Paper_red_Outline.geometry}
+      position={[-1.48, 0.06, 0.04]}
+      rotation={[0.2, -0.15, 0.02]}
+      scale={0.97}>
+      <T.MeshBasicMaterial color="white"/>
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Paper_yellow_Outline.geometry}
+      position={[0.88, 1.53, 0.25]}
+      scale={1.04}>
+      <T.MeshBasicMaterial color="white"/>
+    </T.Mesh>
+
+    <!--Plant-->
+    <T.Mesh
+      geometry={gltf.nodes.Plant.geometry}
+      position={[1.66, 0.37, 0.58]}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [0.76, 0.47, 0.21]},
+            uPosterizeValue: {value: 12},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Plant_Outline.geometry}
+      position={[1.66, 0.37, 0.58]}
+      scale={1.07}>
+      <T.MeshBasicMaterial color="white"/>
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Plant_Flower.geometry}
+      position={[1.66, 0.37, 0.58]}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [0.5, 1.0, 0.45]},
+            uPosterizeValue: {value: 8},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+
+    <!--Clock-->
+    <T.Mesh
+      geometry={gltf.nodes.Clock.geometry}
+      position={[2.07, 1.98, 1.39]}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [0.0, 0.0, 0.0]},
+            uPosterizeValue: {value: 8},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Clock_Outline.geometry}
+      position={[2.07, 1.98, 1.39]}
+      scale={1.05}>
+      <T.MeshBasicMaterial color="white"/>
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Clock_Background.geometry}
+      position={[2.07, 1.98, 1.39]}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [1.0, 1.0, 1.0]},
+            uPosterizeValue: {value: 12},
+            isSideways: {value: true},
+          }
+        }
+        vertexShader={SimpleVert}
+        fragmentShader={PosterizedColor}
+      />
+    </T.Mesh>
+    <T.Mesh
+      geometry={gltf.nodes.Clock_Pointer.geometry}
+      position={[2.07, 1.98, 1.39]}>
+      <T.ShaderMaterial
+        uniforms={
+          {
+            uColor: {value: [0.0, 0.0, 0.0]},
+            uPosterizeValue: {value: 12},
             isSideways: {value: true},
           }
         }

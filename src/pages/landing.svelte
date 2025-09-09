@@ -1,11 +1,11 @@
 <script lang="ts">
     import type { IconType } from "svelte-awesome/components/Icon.svelte";
-    import { github, instagram, linkedin, whatsapp } from "svelte-awesome/icons"
+    import { github, instagram, linkedin, whatsapp } from "svelte-awesome/icons";
+    import Icon from 'svelte-awesome';
     import FloatingWindow from "../components/FloatingWindow.svelte";
     import SquareButton from "../components/SquareButton.svelte";
     import SpatialWindow from "../components/SpatialWindow.svelte";
     import SpaceScene from "./spacescene.svelte";
-    import Icon from 'svelte-awesome';
 
     function goToSocialMedia(link: string) {
         window.location.href = link
@@ -50,6 +50,9 @@
 </div>
 
 {#snippet Avatar()}
+    <div>
+        
+    </div>
 {/snippet}
 
 {#snippet Sklls()}

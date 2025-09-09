@@ -4,20 +4,22 @@ Command: npx @threlte/gltf@3.0.1 ..\lib\assets\planet.glb
 -->
 
 <script lang="ts">
-  import { T } from '@threlte/core'
-  import { useGltf } from '@threlte/extras'
+  import { T } from '@threlte/core';
+  import { useGltf } from '@threlte/extras';
   import CloudFrag from '../shaders/CloudFrag.glsl?raw';
   import simpleVert from '../shaders/SimpleVert.glsl?raw';
   import PlanetFrag from '../shaders/PlanetFrag.glsl?raw';
 
-  let { fallback=()=>{}, error=()=>{}, children=()=>{}, ref = $bindable(), ...props } = $props()
+  let { fallback=()=>{}, error=()=>{}, children=()=>{}, ref = $bindable(), ...props } = $props();
   let planet_color = $state([Math.random(), Math.random(), Math.random()]);
   let planet_water = $state([Math.random(), Math.random(), Math.random()]);
+
   let random_continents = $state(getRandomIntInclusive(2,20));
   let random_clouds = $state(getRandomIntInclusive(2,7));
+
   let satelite_color = $state([Math.random(), Math.random(), Math.random()]);
 
-  const gltf = useGltf('/Space.glb')
+  const gltf = useGltf(`${import.meta.env.BASE_URL}Space.glb`);
 
   function getRandomIntInclusive(min: number, max: number) {
     min = Math.ceil(min);

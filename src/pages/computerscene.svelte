@@ -8,15 +8,15 @@
     color="white"
 />
 <T.Group
-    position={[0.1, -1, 0.82]}
-    rotation={[30.2, 40.856, 0]}>
+    position={[0.0, -0.8, 0.0]}>
     <Computer/>
 </T.Group>
 
 <T.PerspectiveCamera
     makeDefault
-    position={[0, 3.7, 0]}>
+    position={[0.35, 2.5, -5]}>
     <OrbitControls
-        enableRotate={false}
-    />
+        enablePan={false}
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI/2}/>
 </T.PerspectiveCamera>
