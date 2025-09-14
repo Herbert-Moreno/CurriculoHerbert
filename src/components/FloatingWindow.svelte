@@ -7,11 +7,12 @@
         child,
         childProps = {}
     } = $props();
+
 </script>
 
-<div class={`card bg-[var(--Secundary-color)] rounded-xl justify-center z-2 ${placement} ${position}`}
+<div class={`card w-96 bg-[var(--Secundary-color)] rounded-xl justify-center z-2 ${placement} ${position}`}
     style="width: {width}rem; height: {height}rem;">
-    <div class=" w-full h-full p-3 items-center justify-center">
+    <div class="w-full h-full p-3 justify-center items-center place-content-center-safe">
         {#if child}
             {@render child(childProps)}
         {/if}

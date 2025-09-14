@@ -12,8 +12,8 @@
 <Header children={[
 	{icon:home, page:"landing"},
 	{icon:briefcase, page:"projects"},
-	{icon:addressBook, page:"curriculum"},
 ]}/>
+<!--Removido {icon:addressBook, page:"curriculum"},-->
 
 <div>
     {#if current_page == "landing"}

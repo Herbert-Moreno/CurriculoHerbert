@@ -14,7 +14,7 @@
 </script>
 
 {#if oneClick}
-    <button class={`w-[2.8rem] h-[2.8rem] bg-[var(--Secundary-color)] text-white hover:bg-[var(--Secundary-color)] hover:text-[var(--Terciary-color)] border-none shadow-none rounded-xl object-center justify-content-center z-2`}
+    <button class={`w-[2.6rem] h-[2.6rem] bg-[var(--Secundary-color)] text-white hover:bg-[var(--Secundary-color)] hover:text-[var(--Terciary-color)] border-none shadow-none rounded-xl object-center justify-content-center z-2`}
         onclick={()=>{clickedOneTime(); onClick();}}
         disabled={clicked}>
         {#if clicked}
@@ -26,7 +26,7 @@
 {/if}
 
 {#if !oneClick}
-    <button class={`w-[2.8rem] h-[2.8rem] bg-[var(--Terciary-color)] text-white hover:bg-[var(--Secundary-color)] hover:text-[var(--Terciary-color)] border-none shadow-none rounded-xl object-center justify-content-center z-2`}
+    <button class={`w-[2.6rem] h-[2.6rem] bg-[var(--Terciary-color)] text-white hover:bg-[var(--Secundary-color)] hover:text-[var(--Terciary-color)] border-none shadow-none rounded-xl object-center justify-content-center z-2`}
         onclick={()=>{onClick();}}>
         <div class="items-center justify-center">
             {#if icon}

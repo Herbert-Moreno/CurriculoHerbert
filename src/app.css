@@ -20,4 +20,16 @@
             animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
         }
     }
+
+    --animate-programming_anim: programming_anim 0.5s ease-in-out ;
+    @keyframes programming_anim {
+        0% {
+            scale: 0;
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        100% {
+            scale: 100%;
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
 }

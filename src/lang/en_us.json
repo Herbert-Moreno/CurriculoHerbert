@@ -1,12 +1,87 @@
 {
+    "text": {
+        "main_title": "Web & App Developer",
+        "main_curriculum": "About Me",
+        "main_curriculum_text": "I am a Computer Science student at IFCE and I am interested in part-time job opportunities in the Information Technology area. As I attend classes in the afternoon, I am available to work in the morning or at night. I am looking for a position that allows me to apply the knowledge acquired at college, while continuing to develop new skills and contribute to the company.",
+        "secundary_curriculum": "Programming Habilities",
+        "project_link_text": "↗ Repository link"
+    },
     "projects": [
         {
-            "name": "Asteroid_C",
-            "description": ""
+            "name": "Asteroid in C",
+            "description": "🎮 2D Game made with Raylib, Asteroids in C is a 2D game inspired in the era of Snes games, developed with C using Raylib library. I made this game to test my knowledge in the C programming language.",
+            "version": "1.0.0",
+            "tech_stack": [
+                "c",
+                "cmake",
+                "clion",
+                "raylib"
+            ],
+            "icon_url": "Asteroid_C.png",
+            "project_url": "https://github.com/Herbert-Moreno/Asteroids_escrito_em_C",
+            "texture": {
+                "url": "Asteroid_spritesheet.png",
+                "totalFrames": 28,
+                "rows": 7,
+                "columns": 4
+            }
         },
         {
-            "name": "",
-            "description": ""
+            "name": "Pong in C",
+            "description": "🎮 Pong project made in C language using the Raylib graphics library, a 2D game inspired by the classic Ping Pong which was the starting point for the creation of video games.",
+            "version": "1.0.0",
+            "tech_stack": [
+                "c",
+                "cmake",
+                "clion",
+                "raylib"
+            ],
+            "icon_url": "Pong_C.png",
+            "project_url": "https://github.com/Herbert-Moreno/Pong_Escrito_em_C",
+            "texture": {
+                "url": "Pong_spritesheet.png",
+                "totalFrames": 59,
+                "rows": 15,
+                "columns": 4
+            }
+        },
+        {
+            "name": "Weather App",
+            "description": "🌤️ Weather Forecast App built with Jetpack Compose and FastAPI. WeatherApp is a weather forecast application developed using Jetpack Compose and a FastAPI backend, utilizing the OpenWeather API to provide accurate and real-time weather data.",
+            "version": "2.0.0",
+            "tech_stack": [
+                "jetpackcompose",
+                "kotlin",
+                "python",
+                "fastapi"
+            ],
+            "icon_url": "WeatherApp.png",
+            "project_url": "https://github.com/Herbert-Moreno/Projeto_App_Clima",
+            "texture": {
+                "url": "",
+                "totalFrames": 14,
+                "rows": 4,
+                "columns": 4
+            }
+        },
+        {
+            "name": "TaskMan App",
+            "description": "📋 This is a task list project developed with Flutter. I created the app with the goal of learning the Dart language and the Flutter frontend framework, an excellent declarative UI framework.",
+            "version": "2.0.0",
+            "tech_stack": [
+                "flutter",
+                "dart",
+                "androidstudio",
+                "android"
+            ],
+            "icon_url": "TaskMan.png",
+            "project_url": "https://github.com/Herbert-Moreno/TaskMan",
+            "texture": {
+                "url": "TaskMan_spritesheet.png",
+                "totalFrames": 58,
+                "rows": 12,
+                "columns": 5
+            }
         }
     ]
 }

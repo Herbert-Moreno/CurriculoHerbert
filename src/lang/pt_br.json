@@ -1,12 +1,87 @@
 {
+    "text": {
+        "main_title": "Desenvolvedor Web e App",
+        "main_curriculum": "Sobre Mim",
+        "main_curriculum_text": "Sou estudante de Ciência da Computação no IFCE e tenho interesse em oportunidades de trabalho meio período na área de Tecnologia da Informação. Como curso no período vespertino, estou disponível para atuar no período da manhã ou à noite. Busco uma posição que me permita aplicar meus conhecimentos adquiridos na faculdade, ao mesmo tempo em que continuo a desenvolver novas habilidades e contribuo para a empresa.",
+        "secundary_curriculum": "Habilidades em Programação",
+        "project_link_text": "↗ Link do Repositório"
+    },
     "projects": [
         {
-            "name": "Asteroid_C",
-            "description": ""
+            "name": "Asteroid em C",
+            "description": "🎮 Jogo 2D Desenvolvido com Raylib, Asteroids em C é um jogo 2D inspirado nos clássicos da era Super Nintendo, desenvolvido em C utilizando a biblioteca Raylib. Fiz esse jogo para testar meus conhecimentos na linguagem C.",
+            "version": "1.0.0",
+            "tech_stack": [
+                "c",
+                "cmake",
+                "clion",
+                "raylib"
+            ],
+            "icon_url": "Asteroid_C.png",
+            "project_url": "https://github.com/Herbert-Moreno/Asteroids_escrito_em_C",
+            "texture": {
+                "url": "Asteroid_spritesheet.png",
+                "totalFrames": 28,
+                "rows": 7,
+                "columns": 4
+            }
         },
         {
-            "name": "",
-            "description": ""
+            "name": "Pong em C",
+            "description": "🎮 Projeto pong feito com linguagem C usando a lib gráfica Raylib, um jogo 2D inspirado nos clássico Ping Pong que foi o ponta-pé para a criação dos jogos.",
+            "version": "1.0.0",
+            "tech_stack": [
+                "c",
+                "cmake",
+                "clion",
+                "raylib"
+            ],
+            "icon_url": "Pong_C.png",
+            "project_url": "https://github.com/Herbert-Moreno/Pong_Escrito_em_C",
+            "texture": {
+                "url": "Pong_spritesheet.png",
+                "totalFrames": 59,
+                "rows": 15,
+                "columns": 4
+            }
+        },
+        {
+            "name": "App de Clima",
+            "description": "🌤️ Aplicativo de Previsão do Tempo em Jetpack Compose e FastAPI. O WeatherApp é um aplicativo de previsão do tempo desenvolvido com Jetpack Compose e um backend em FastAPI, utilizando a API do OpenWeather para fornecer dados meteorológicos precisos e em tempo real.",
+            "version": "2.0.0",
+            "tech_stack": [
+                "jetpackcompose",
+                "kotlin",
+                "python",
+                "fastapi"
+            ],
+            "icon_url": "WeatherApp.png",
+            "project_url": "https://github.com/Herbert-Moreno/Projeto_App_Clima",
+            "texture": {
+                "url": "",
+                "totalFrames": 14,
+                "rows": 4,
+                "columns": 4
+            }
+        },
+        {
+            "name": "Aplicativo TaskMan",
+            "description": "📋 Este é um projeto de lista de tarefas desenvolvido com Flutter. Fiz o aplicativo com o objetivo de aprender a linguagem Dart e aprender o framework frontend Flutter, um otimo framework de ui declarativa.",
+            "version": "2.0.0",
+            "tech_stack": [
+                "flutter",
+                "dart",
+                "androidstudio",
+                "android"
+            ],
+            "icon_url": "TaskMan.png",
+            "project_url": "https://github.com/Herbert-Moreno/TaskMan",
+            "texture": {
+                "url": "TaskMan_spritesheet.png",
+                "totalFrames": 58,
+                "rows": 12,
+                "columns": 5
+            }
         }
     ]
 }

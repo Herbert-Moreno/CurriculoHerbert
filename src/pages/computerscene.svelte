@@ -2,6 +2,8 @@
     import { T } from '@threlte/core';
     import { OrbitControls } from '@threlte/extras';
     import Computer from '../components/Computer.svelte';
+
+    let {projectTexture} = $props();
 </script>
 
 <T.AmbientLight 
@@ -9,7 +11,7 @@
 />
 <T.Group
     position={[0.0, -0.8, 0.0]}>
-    <Computer/>
+    <Computer screenTex={projectTexture}/>
 </T.Group>
 
 <T.PerspectiveCamera
