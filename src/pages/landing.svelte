@@ -6,25 +6,26 @@
     import SquareButton from "../components/SquareButton.svelte";
     import SpatialWindow from "../components/SpatialWindow.svelte";
     import SpaceScene from "./spacescene.svelte";
-    import US_Json from '../lang/en_US.json?raw';
-    import ES_Json from '../lang/eu_ES.json?raw';
-    import PT_Json from '../lang/pt_BR.json?raw';
+
+    import US_Json from '../lang/en_US.json';
+    import ES_Json from '../lang/eu_ES.json';
+    import PT_Json from '../lang/pt_BR.json';
 
     let page_locale = $state(navigator.language);
     let text_localized = $state();
 
     switch (page_locale) {
         case "en-US":
-            text_localized = JSON.parse(US_Json);
+            text_localized = US_Json;
             break;
         case "eu-ES":
-            text_localized = JSON.parse(ES_Json);
+            text_localized = ES_Json;
             break;
         case "pt-BR":
-            text_localized = JSON.parse(PT_Json);
+            text_localized = PT_Json;
             break;
         default:
-            text_localized = JSON.parse(US_Json);
+            text_localized = US_Json;
             break;
     }
     function goToSocialMedia(link: string) {

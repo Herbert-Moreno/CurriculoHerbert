@@ -8,9 +8,9 @@
     import ComputerScene from "./computerscene.svelte";
     import SquareButton from "../components/SquareButton.svelte";
 
-    import US_Json from '../lang/en_US.json?raw';
-    import ES_Json from '../lang/eu_ES.json?raw';
-    import PT_Json from '../lang/pt_BR.json?raw';
+    import US_Json from '../lang/en_US.json';
+    import ES_Json from '../lang/eu_ES.json';
+    import PT_Json from '../lang/pt_BR.json';
 
     let page_locale = $state(navigator.language);
     let current_project = $state(0);
@@ -30,16 +30,16 @@
 
     switch (page_locale) {
         case "en-US":
-            projects_json = JSON.parse(US_Json);
+            projects_json = US_Json;
             break;
         case "eu-ES":
-            projects_json = JSON.parse(ES_Json);
+            projects_json = ES_Json;
             break;
         case "pt-BR":
-            projects_json = JSON.parse(PT_Json);
+            projects_json = PT_Json;
             break;
         default:
-            projects_json = JSON.parse(US_Json);
+            projects_json = US_Json;
             break;
     }
 
