@@ -8,9 +8,9 @@
     import ComputerScene from "./computerscene.svelte";
     import SquareButton from "../components/SquareButton.svelte";
 
-    import US_Json from '../lang/en_US.json';
-    import ES_Json from '../lang/eu_ES.json';
-    import PT_Json from '../lang/pt_BR.json';
+    import US_Json from '../lang/en_us.json';
+    import ES_Json from '../lang/eu_es.json';
+    import PT_Json from '../lang/pt_br.json';
 
     let page_locale = $state(navigator.language);
     let current_project = $state(0);
