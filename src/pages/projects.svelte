@@ -11,6 +11,7 @@
     import US_Json from '../lang/en_us.json';
     import ES_Json from '../lang/eu_es.json';
     import PT_Json from '../lang/pt_br.json';
+    import SkillIcon from "../components/SkillIcon.svelte";
 
     let page_locale = $state(navigator.language);
     let current_project = $state(0);
@@ -58,86 +59,115 @@
     }
 
     let windowWidth = $state(0);
+
+    let scale = $state(1);
+
+    $effect(()=>{scale = Math.min(1, windowWidth / 1440);})
 </script>
 
 <svelte:window bind:innerWidth={windowWidth}/>
 
-{#if windowWidth >= 1000}
+{#if windowWidth >= 1110}
     <section class="flex flex-nowrap flex-row w-fit h-fit gap-5 justify-center items-center justify-self-center mb-4">
         <div class="flex flex-col flex-1 flex-wrap gap-5">
             <FloatingWindow 
-            width="33" 
-            height="24" 
+            width={530 * scale} 
+            height={400 * scale} 
             placement=" " 
             position=" "
             child={ProjectInfo}
             />
             <FloatingWindow 
-            width="33" 
-            height="4.75" 
+            width={530 * scale} 
+            height={70 * scale} 
             placement=" " 
             position=" "
             child={StackAndSkip}
             />
         </div>
         <FloatingWindow 
-        width="40" 
-        height="30" 
+        width={530 * scale} 
+        height={495 * scale} 
         placement=" " 
         position=" "
         child={ProjectShowerScene}
         />
     </section>
 {/if}
-
-{#if windowWidth <= 999 && windowWidth >= 621}
-    <section class="flex flex-wrap flex-col w-fit h-fit gap-5 justify-center items-center justify-self-center mb-4">
+{#if windowWidth < 1110 && windowWidth > 790}
+    <section class="flex flex-nowrap flex-row w-fit h-fit gap-5 justify-center items-center justify-self-center mb-4">
+        <div class="flex flex-col flex-1 flex-wrap gap-5">
+            <FloatingWindow 
+            width={(530 * 1.2) * scale} 
+            height={(400 * 1.2) * scale} 
+            placement=" " 
+            position=" "
+            child={ProjectInfo}
+            />
+            <FloatingWindow 
+            width={(530 * 1.2) * scale} 
+            height={(70 * 1.2) * scale} 
+            placement=" " 
+            position=" "
+            child={StackAndSkip}
+            />
+        </div>
         <FloatingWindow 
-        width="40" 
-        height="24" 
-        placement=" " 
-        position=" "
-        child={ProjectInfo}
-        />
-        <FloatingWindow 
-        width="40" 
-        height="4.75" 
-        placement=" " 
-        position=" "
-        child={StackAndSkip}
-        />
-        <FloatingWindow 
-        width="40" 
-        height="30" 
+        width={(530 * 1.2) * scale} 
+        height={(495 * 1.2) * scale} 
         placement=" " 
         position=" "
         child={ProjectShowerScene}
         />
     </section>
 {/if}
-
-{#if windowWidth <= 621 && windowWidth >= 280}
-    <section class="flex flex-wrap flex-col w-fit h-fit gap-5 justify-center items-center justify-self-center mb-4">
+{#if windowWidth <= 769 && windowWidth > 426}
+    <section class="flex flex-nowrap flex-col w-fit h-fit gap-5 justify-center items-center justify-self-center mb-4">
         <FloatingWindow 
-        width="30" 
-        height="24" 
+        width={(530 * 2) * scale} 
+        height={(495 * 2) * scale} 
+        placement=" " 
+        position=" "
+        child={ProjectShowerScene}
+        />
+        <FloatingWindow 
+        width={(530 * 2) * scale} 
+        height={(400 * 2) * scale} 
         placement=" " 
         position=" "
         child={ProjectInfo}
         />
         <FloatingWindow 
-        width="30" 
-        height="4.75" 
+        width={(530 * 2) * scale} 
+        height={(70 * 2) * scale} 
         placement=" " 
         position=" "
         child={StackAndSkip}
         />
+    </section>
+{/if}
+{#if windowWidth <= 426 && windowWidth > 310}
+    <section class="flex flex-nowrap flex-col w-fit h-fit gap-5 justify-center items-center justify-self-center mb-4">
         <FloatingWindow 
-        width="30" 
-        height="30" 
+        width={(530 * 2.5) * scale} 
+        height={(495 * 2.5) * scale} 
         placement=" " 
         position=" "
         child={ProjectShowerScene}
+        />
+        <FloatingWindow 
+        width={(530 * 2.6) * scale} 
+        height={(400 * 2.6) * scale} 
+        placement=" " 
+        position=" "
+        child={ProjectInfo}
+        />
+        <FloatingWindow 
+        width={(530 * 2.5) * scale} 
+        height={(90 * 2.5) * scale} 
+        placement=" " 
+        position=" "
+        child={StackAndSkip}
         />
     </section>
 {/if}
@@ -152,11 +182,11 @@
 {/snippet}
 
 {#snippet StackAndSkip()}
-    <div class="w-full flex flex-row gap-2">
+    <div class="w-full flex flex-row gap-2 items-center">
         <div class="w-full flex justify-start">
             <SquareButton icon={icons} iconProp={arrowLeft} onClick={()=>{Change_Project("decrease")}}/>
         </div>
-        <div class="w-full flex justify-center gap-3">
+        <div class="w-full h-full flex justify-center gap-3">
             {@render CreateStack()}
         </div>
         <div class="w-full flex justify-end">
@@ -165,7 +195,36 @@
     </div>
     {#snippet CreateStack()}
         {#each projects_json["projects"][current_project]["tech_stack"] as stack}
-            <img class="w-max h-max" src={`https://skills.syvixor.com/api/icons?i=${stack}`} alt="skill icons"/>
+            {#if windowWidth >= 1023}
+                <img 
+                style="
+                width: {48*scale}px;
+                height: {48*scale}px;
+                "
+                src="https://skills.syvixor.com/api/icons?i={stack}" 
+                alt="skill icons"
+                />
+            {/if}
+            {#if windowWidth <= 769 && windowWidth > 426}
+                <img 
+                style="
+                width: {(48 * 2)*scale}px;
+                height: {(48 * 2)*scale}px;
+                "
+                src="https://skills.syvixor.com/api/icons?i={stack}" 
+                alt="skill icons"
+                />
+            {/if}
+            {#if windowWidth <= 426 && windowWidth >= 319}
+                <img 
+                style="
+                width: {(48 * 2.5)*scale}px;
+                height: {(48 * 2.5)*scale}px;
+                "
+                src="https://skills.syvixor.com/api/icons?i={stack}" 
+                alt="skill icons"
+                />
+            {/if}
         {/each}
     {/snippet}
         {#snippet icons(icon: IconType)}
@@ -174,21 +233,51 @@
 {/snippet}
 
 {#snippet ProjectInfo()}
-    <section class="w-full h-fit flex flex-col gap-2 p-2">
+    <section class="w-full h-fit flex flex-col gap-3 p-2">
+        {#if windowWidth < 325}
+            <div class="absolute top-12 left-36 text-end text-sm text-white/50">
+                <a href={projects_json["projects"][current_project]["project_url"]}>
+                    {projects_json["text"]["project_link_text"]}
+                </a>
+            </div>
+        {/if}
         <img class="w-18 h-18" src={projects_json["projects"][current_project]["icon_url"]} alt="Project Icon">
         <div class="w-full flex flex-row justify-between text-bold items-end">
-            <h1 class="text-3xl">{projects_json["projects"][current_project]["name"]}</h1>
-            <p class="text-md">Version: {projects_json["projects"][current_project]["version"]}</p>
+            {#if windowWidth >= 1110}
+                <h1 class="text-white text-[32px] select-none">{projects_json["projects"][current_project]["name"]}</h1>
+                <p class="text-white text-md">Version: {projects_json["projects"][current_project]["version"]}</p>
+            {/if}
+            {#if windowWidth <= 1024 && windowWidth > 428}
+                <h1 class="text-white text-[32px] select-none">{projects_json["projects"][current_project]["name"]}</h1>
+                <p class="text-white text-md">Version: {projects_json["projects"][current_project]["version"]}</p>
+            {/if}
+            {#if windowWidth <= 426 && windowWidth > 310}
+                <h1 class="text-white text-[20px] select-none">{projects_json["projects"][current_project]["name"]}</h1>
+                <p class="text-white text-sm">Version: {projects_json["projects"][current_project]["version"]}</p>
+            {/if}
         </div>
-        <br>
-        <p>
-            {projects_json["projects"][current_project]["description"]}
-        </p>
+        {#if windowWidth >= 1110}
+            <p class="text-white text-md">
+                {projects_json["projects"][current_project]["description"]}
+            </p>
+        {/if}
+        {#if windowWidth <= 1024 && windowWidth > 428}
+            <p class="text-white text-sm">
+                {projects_json["projects"][current_project]["description"]}
+            </p>
+        {/if}
+        {#if windowWidth <= 426 && windowWidth > 310}
+            <p class="text-white text-[9px]">
+                {projects_json["projects"][current_project]["description"]}
+            </p>
+        {/if}
     </section>
     <br>
-    <div class="w-full h-fit p-2 text-end text-sm text-white/50">
-        <a href={projects_json["projects"][current_project]["project_url"]}>
-            {projects_json["text"]["project_link_text"]}
-        </a>
-    </div>
+    {#if windowWidth > 325}
+        <div class="w-full h-fit pb-2 text-end text-sm text-white/50">
+            <a href={projects_json["projects"][current_project]["project_url"]}>
+                {projects_json["text"]["project_link_text"]}
+            </a>
+        </div>
+    {/if}
 {/snippet}

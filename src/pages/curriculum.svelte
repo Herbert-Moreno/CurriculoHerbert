@@ -70,7 +70,7 @@
             <div class="w-10 h-10 bg-[var(--Primary-color)] p-3 rounded-4xl flex items-center">
                 <Icon data={gear} scale={1.3}/>
             </div>
-            <h4 class="text-xl text-bold">
+            <h4 class="text-white text-xl text-bold">
                 {text_localized["text"]["secundary_curriculum"]}
             </h4>
         </div>
@@ -84,7 +84,7 @@
     </article>
     {#snippet programmingSkill(name: string, size: number)}
         <div class="w-full h-fit flex flex-col">
-            <p>
+            <p class="text-white">
                 {name}
             </p>
             <div class="w-[250px] h-2 bg-white/25 rounded-2xl">

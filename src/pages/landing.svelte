@@ -10,6 +10,7 @@
     import US_Json from '../lang/en_us.json';
     import ES_Json from '../lang/eu_es.json';
     import PT_Json from '../lang/pt_br.json';
+    import SkillIcon from "../components/SkillIcon.svelte";
 
     let page_locale = $state(navigator.language);
     let text_localized = $state();
@@ -33,38 +34,42 @@
     }
 
     let windowWidth = $state(0);
+
+    let scale = $state(1);
+
+    $effect(()=>{scale = Math.min(1, windowWidth / 1440);})
 </script>
 
 <svelte:window bind:innerWidth={windowWidth}/>
 
-{#if windowWidth >= 1000}
+{#if windowWidth >= 1110}
     <section class="flex flex-row flex-nowrap gap-3 w-full h-fit justify-center items-center justify-self-center">
         <FloatingWindow 
-        width="58" 
-        height="32" 
+        width={920 * scale}
+        height={520 * scale} 
         placement=" " 
         position=" "
         child={spacescene}
         />
         <div class="flex flex-col flex-nowrap gap-3 items-center">
             <FloatingWindow 
-            width="20" 
-            height="16.5" 
+            width={300 * scale} 
+            height={260 * scale} 
             placement=" " 
             position=" "
             child={Avatar}
             />
             <div class="flex flex-col flex-nowrap gap-3">
                 <FloatingWindow 
-                width="20" 
-                height="4" 
+                width={300 * scale} 
+                height={65 * scale} 
                 placement=" " 
                 position=" "
                 child={SocialMedia}
                 />
                 <FloatingWindow 
-                width="20" 
-                height="10" 
+                width={300 * scale} 
+                height={160 * scale} 
                 placement=" " 
                 position=" "
                 child={Sklls}
@@ -74,34 +79,34 @@
     </section>
 {/if}
 
-{#if windowWidth <= 999 && windowWidth >= 621}
-    <section class="flex flex-row flex-wrap gap-3 w-full h-fit justify-center items-center justify-self-center">
+{#if windowWidth < 1110 && windowWidth > 632}
+    <section class="flex flex-col flex-nowrap gap-3 w-full h-fit justify-center items-center justify-self-center">
         <FloatingWindow 
-        width="40" 
-        height="21" 
+        width={(920 * 1.2) * scale}
+        height={(520 * 1.2) * scale} 
         placement=" " 
         position=" "
         child={spacescene}
         />
-        <div class="flex gap-3 pb-6 items-center">
+        <div class="flex flex-row flex-nowrap gap-3 items-center">
             <FloatingWindow 
-            width="21" 
-            height="19" 
+            width={(350 * 1.2) * scale} 
+            height={(300 * 1.2) * scale} 
             placement=" " 
             position=" "
             child={Avatar}
             />
             <div class="flex flex-col flex-nowrap gap-3">
                 <FloatingWindow 
-                width="18" 
-                height="8" 
+                width={(350 * 1.2) * scale} 
+                height={(100.5 * 1.2) * scale} 
                 placement=" " 
                 position=" "
                 child={SocialMedia}
                 />
                 <FloatingWindow 
-                width="18" 
-                height="10" 
+                width={(350 * 1.2) * scale} 
+                height={(197.5 * 1.2) * scale} 
                 placement=" " 
                 position=" "
                 child={Sklls}
@@ -111,74 +116,88 @@
     </section>
 {/if}
 
-{#if windowWidth <= 621 && windowWidth >= 280}
-    <section class="flex flex-row flex-wrap gap-3 w-full h-fit justify-center items-center justify-self-center">
+{#if windowWidth <= 632 && windowWidth >= 320}
+    <section class="flex flex-col flex-nowrap gap-3 w-full h-fit justify-center items-center justify-self-center">
         <FloatingWindow 
-        width="30" 
-        height="17" 
+        width={(920 * 1.54) * scale}
+        height={(520 * 1.54) * scale} 
         placement=" " 
         position=" "
         child={spacescene}
         />
-        <div class="flex flex-col flex-wrap gap-3 pb-6 items-center">
-            <FloatingWindow 
-            width="30" 
-            height="18" 
-            placement=" " 
-            position=" "
-            child={Avatar}
-            />
-            <div class="flex flex-col flex-wrap gap-3">
-                <FloatingWindow 
-                width="30" 
-                height="5" 
-                placement=" " 
-                position=" "
-                child={SocialMedia}
-                />
-                <FloatingWindow 
-                width="30" 
-                height="8" 
-                placement=" " 
-                position=" "
-                child={Sklls}
-                />
-            </div>
-        </div>
+        <FloatingWindow 
+        width={(920 * 1.54) * scale}
+        height={(600 * 1.54) * scale} 
+        placement=" " 
+        position=" "
+        child={Avatar}
+        />
+        <FloatingWindow 
+        width={(920 * 1.54) * scale}
+        height={(200 * 1.54) * scale} 
+        placement=" " 
+        position=" "
+        child={SocialMedia}
+        />
+        <FloatingWindow 
+        width={(920 * 1.54) * scale}
+        height={(400 * 1.54) * scale} 
+        placement=" " 
+        position=" "
+        child={Sklls}
+        />
     </section>
 {/if}
 
 {#snippet Avatar()}
-    <div class="justify-self-center">
-        <!-- svelte-ignore a11y_img_redundant_alt -->
-        <img 
-        src={`${import.meta.env.BASE_URL}ProfilePic.png`} 
-        alt="Profile Picture"
-        class="w-56"
-        />
-    </div>
+    {#if windowWidth > 375}
+        <div class="justify-self-center">
+            <!-- svelte-ignore a11y_img_redundant_alt -->
+            <img 
+            src={`${import.meta.env.BASE_URL}ProfilePic.png`} 
+            alt="Profile Picture"
+            class="w-full h-full"
+            />
+        </div>
+    {/if}
+    {#if windowWidth <= 375}
+        <div class="justify-self-center">
+            <!-- svelte-ignore a11y_img_redundant_alt -->
+            <img 
+            src={`${import.meta.env.BASE_URL}ProfilePic.png`} 
+            alt="Profile Picture"
+            class="w-52"
+            />
+        </div>
+    {/if}
 {/snippet}
 
 {#snippet Sklls()}
-    <div class="w-full flex flex-row flex-wrap gap-9 max-md:gap-8 justify-center">
-        <a href="https://www.c-language.org/">
-            <img class="w-max h-max" src="https://skillicons.dev/icons?i=c" alt="skill icons"/>
-        </a>
-        <a href="https://ziglang.org/">
-            <img class="w-max h-max" src="https://skillicons.dev/icons?i=zig" alt="skill icons"/>
-        </a>
-        <a href="https://www.python.org/">
-            <img class="w-max h-max" src="https://skillicons.dev/icons?i=python" alt="skill icons"/>
-        </a>
-        <a href="https://react.dev/">
-            <img class="w-max h-max" src="https://skillicons.dev/icons?i=react" alt="skill icons"/>
-        </a>
-        <a href="https://svelte.dev/">
-            <img class="w-max h-max" src="https://skillicons.dev/icons?i=svelte" alt="skill icons"/>
-        </a>
-        <a href="https://flutter.dev/">
-            <img class="w-max h-max" src="https://skillicons.dev/icons?i=flutter" alt="skill icons"/>
-        </a>
+    <div class="flex flex-row flex-wrap gap-8 max-sm:gap-10 justify-center items-center">
+        <SkillIcon 
+        href="https://www.c-language.org/"
+        icon="c"
+        />
+        <SkillIcon 
+        href="https://ziglang.org/"
+        icon="zig"
+        />
+        <SkillIcon 
+        href="https://www.python.org/"
+        icon="python"
+        />
+        <SkillIcon 
+        href="https://react.dev/"
+        icon="react"
+        />
+        <SkillIcon 
+        href="https://svelte.dev/"
+        icon="svelte"
+        />
+        <SkillIcon 
+        href="https://kotlinlang.org/"
+        icon="kotlin"
+        />
     </div>
 {/snippet}
 
@@ -195,15 +214,40 @@
 {/snippet}
 
 {#snippet spacescene()}
-    <div>
+    <div class="absolute w-full h-full top-0 left-0 p-3">
         <SpatialWindow 
             scene={scene}
         />
-        <div class="absolute flex flex-col text-center gap-3 max-md:gap-1 top-[35%] left-[56.5%]">
-            <h1 class="text-white text-5xl max-lg:text-3xl max-sm:text-2xl select-none">José Herbert<br>
+    </div>
+    <div 
+    class="w-full flex flex-col text-center gap-3 max-md:gap-1"
+    style="align-items: end;"
+    >
+        {#if windowWidth >= 1110}
+            <h1 class="text-white text-[42px] select-none">José Herbert<br>
             Rodrigues Moreno</h1>
-            <h4 class="text-[var(--Terciary-color)] text-2xl max-lg:text-sm select-none">{text_localized["text"]["main_title"]}</h4>
-        </div>
+            <h4 class="text-[var(--Terciary-color)] text-[24px] select-none mr-5">{text_localized["text"]["main_title"]}</h4>
+        {/if}
+        {#if windowWidth < 1110 && windowWidth >= 814}
+            <h1 class="text-white text-[35px] select-none">José Herbert<br>
+            Rodrigues Moreno</h1>
+            <h4 class="text-[var(--Terciary-color)] text-[19px] select-none mr-5">{text_localized["text"]["main_title"]}</h4>
+        {/if}
+        {#if windowWidth < 814 && windowWidth >= 470}
+            <h1 class="text-white text-[28px] select-none">José Herbert<br>
+            Rodrigues Moreno</h1>
+            <h4 class="text-[var(--Terciary-color)] text-[15px] select-none mr-5">{text_localized["text"]["main_title"]}</h4>
+        {/if}
+        {#if windowWidth < 470 && windowWidth >= 375}
+            <h1 class="text-white text-[22px] select-none">José Herbert<br>
+            Rodrigues Moreno</h1>
+            <h4 class="text-[var(--Terciary-color)] text-[12px] select-none mr-5">{text_localized["text"]["main_title"]}</h4>
+        {/if}
+        {#if windowWidth < 375 && windowWidth >= 320}
+            <h1 class="text-white text-[18px] select-none">José Herbert<br>
+            Rodrigues Moreno</h1>
+            <h4 class="text-[var(--Terciary-color)] text-[8px] select-none mr-5">{text_localized["text"]["main_title"]}</h4>
+        {/if}
     </div>
     {#snippet scene()}
         <SpaceScene/>
