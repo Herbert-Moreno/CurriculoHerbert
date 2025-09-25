@@ -58,10 +58,10 @@
             "icon_url": "WeatherApp.png",
             "project_url": "https://github.com/Herbert-Moreno/Projeto_App_Clima",
             "texture": {
-                "url": "",
-                "totalFrames": 14,
-                "rows": 4,
-                "columns": 4
+                "url": "Climatize_spritesheet.png",
+                "totalFrames": 77,
+                "rows": 16,
+                "columns": 5
             }
         },
         {

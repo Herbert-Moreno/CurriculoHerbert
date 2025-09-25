@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { IconType } from "svelte-awesome/components/Icon.svelte";
-    import { github, instagram, linkedin, whatsapp } from "svelte-awesome/icons";
+    import { github, instagram, linkedin, whatsapp, share } from "svelte-awesome/icons";
     import Icon from 'svelte-awesome';
     import FloatingWindow from "../components/FloatingWindow.svelte";
     import SquareButton from "../components/SquareButton.svelte";
