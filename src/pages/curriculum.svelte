@@ -2,27 +2,9 @@
     import { Icon } from "svelte-awesome";
     import { addressBook, gear } from "svelte-awesome/icons";
     import FloatingWindow from "../components/FloatingWindow.svelte";
-    import US_Json from '../lang/en_us.json';
-    import ES_Json from '../lang/eu_es.json';
-    import PT_Json from '../lang/pt_br.json';
+    
+    import {text_localized} from "../lib/index";
 
-    let page_locale = $state(navigator.language);
-    let text_localized = $state();
-
-    switch (page_locale) {
-        case "en-US":
-            text_localized = US_Json;
-            break;
-        case "eu-ES":
-            text_localized = ES_Json;
-            break;
-        case "pt-BR":
-            text_localized = PT_Json;
-            break;
-        default:
-            text_localized = US_Json;
-            break;
-    }
 </script>
 
 <div class="flex flex-col w-fit h-fit justify-center items-center gap-3 ml-auto mr-auto mt-[1.5%]">

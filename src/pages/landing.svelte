@@ -1,34 +1,14 @@
 <script lang="ts">
     import type { IconType } from "svelte-awesome/components/Icon.svelte";
-    import { github, instagram, linkedin, whatsapp, share } from "svelte-awesome/icons";
+    import { github, instagram, linkedin, whatsapp } from "svelte-awesome/icons";
     import Icon from 'svelte-awesome';
     import FloatingWindow from "../components/FloatingWindow.svelte";
     import SquareButton from "../components/SquareButton.svelte";
     import SpatialWindow from "../components/SpatialWindow.svelte";
     import SpaceScene from "./spacescene.svelte";
-
-    import US_Json from '../lang/en_us.json';
-    import ES_Json from '../lang/eu_es.json';
-    import PT_Json from '../lang/pt_br.json';
     import SkillIcon from "../components/SkillIcon.svelte";
-
-    let page_locale = $state(navigator.language);
-    let text_localized = $state();
-
-    switch (page_locale) {
-        case "en-US":
-            text_localized = US_Json;
-            break;
-        case "eu-ES":
-            text_localized = ES_Json;
-            break;
-        case "pt-BR":
-            text_localized = PT_Json;
-            break;
-        default:
-            text_localized = US_Json;
-            break;
-    }
+    import { text_localized } from "../lib/index";
+ 
     function goToSocialMedia(link: string) {
         window.location.href = link
     }

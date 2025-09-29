@@ -7,42 +7,10 @@
     import SpatialWindow from "../components/SpatialWindow.svelte";
     import ComputerScene from "./computerscene.svelte";
     import SquareButton from "../components/SquareButton.svelte";
+    import { text_localized } from "../lib/index";
 
-    import US_Json from '../lang/en_us.json';
-    import ES_Json from '../lang/eu_es.json';
-    import PT_Json from '../lang/pt_br.json';
-    import SkillIcon from "../components/SkillIcon.svelte";
-
-    let page_locale = $state(navigator.language);
     let current_project = $state(0);
-    type Project = {
-        name: string;
-        version: string;
-        description: string;
-        icon_url: string;
-        project_url: string;
-        tech_stack: string[];
-        texture: object;
-    };
-    type ProjectsJson = {
-        projects: Project[];
-    };
-    let projects_json = $state<ProjectsJson>();
-
-    switch (page_locale) {
-        case "en-US":
-            projects_json = US_Json;
-            break;
-        case "eu-ES":
-            projects_json = ES_Json;
-            break;
-        case "pt-BR":
-            projects_json = PT_Json;
-            break;
-        default:
-            projects_json = US_Json;
-            break;
-    }
+    let projects_json = $derived(text_localized);
 
     function Change_Project(change_type: string) {
         if (change_type == "decrease") {
