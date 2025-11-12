@@ -3,8 +3,8 @@
 
 :root {
     font-family: "Inter", sans-serif;
-    --Primary-color: #051F39;
-    --Secundary-color: #0E2046;
+    --Primary-color: #190257;
+    --Secundary-color: #241075;
     --Terciary-color: #79A3FC;
     background-color: var(--Primary-color);
 }
