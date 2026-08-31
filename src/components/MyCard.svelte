@@ -14,7 +14,7 @@
 <div class="flex flex-col flex-wrap items-center justify-center pt-34">
   <div class="w-full max-w-5xl h-72 bg-[#241075] rounded-xl p-4 text-white shadow-lg">
     <div class="flex flex-row flex-wrap w-full h-full gap-8 justify-center align-middle items-center">
-      <img class="h-52" src={`${import.meta.env.BASE_URL}/ProfilePic.png`} alt="Foto de perfil"/>
+      <img class="h-52" src={`${import.meta.env.BASE_URL}ProfilePic.png`} alt="Foto de perfil"/>
       <div 
         class="w-fit h-full flex flex-col text-center gap-2 justify-center align-middle items-center">
         <h1 class="text-white text-3xl select-none font-extrabold">José Herbert Rodrigues Moreno</h1>

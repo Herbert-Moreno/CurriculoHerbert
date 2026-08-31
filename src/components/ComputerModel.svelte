@@ -7,8 +7,8 @@
   let laptop_screen_texture = $derived(projectTexture);
   
   const loadingPromise = Promise.all([
-    useGltf(`${import.meta.env.BASE_URL}/Computer.glb`),
-    useTexture(`${import.meta.env.BASE_URL}/ComputerTexture.png`)
+    useGltf(`${import.meta.env.BASE_URL}Computer.glb`),
+    useTexture(`${import.meta.env.BASE_URL}ComputerTexture.png`)
   ]);
 </script>
 
