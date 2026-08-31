@@ -1,15 +1,16 @@
 {
     "text": {
-        "main_title": "desarrollador de aplicaciones y web",
-        "main_curriculum": "Acerca de mí",
-        "main_curriculum_text": "Soy estudiante de Ciencias de la Computación en el IFCE y tengo interés en oportunidades de trabajo de medio tiempo en el área de Tecnología de la Información. Como estudio en el turno de la tarde, estoy disponible para trabajar por la mañana o por la noche. Busco una posición que me permita aplicar los conocimientos adquiridos en la universidad, al mismo tiempo que sigo desarrollando nuevas habilidades y contribuyo a la empresa.",
-        "secundary_curriculum": "Habilidad en Programación",
-        "project_link_text": "↗ Link del repositorio"
+        "main_title": "Desenvolvedor de Jogos & Mobile",
+        "main_curriculum": "Sobre Mim",
+        "main_curriculum_text": "Sou estudante de Ciência da Computação no IFCE e tenho interesse em oportunidades de trabalho meio período na área de Tecnologia da Informação. Como curso no período vespertino, estou disponível para atuar no período da manhã ou à noite. Busco uma posição que me permita aplicar meus conhecimentos adquiridos na faculdade, ao mesmo tempo em que continuo a desenvolver novas habilidades e contribuo para a empresa.",
+        "secundary_curriculum": "Habilidades em Programação",
+        "project_link_text": "↗ Link do Repositório",
+        "tools": "Ferramentas e Linguagens"
     },
     "projects": [
         {
-            "name": "Asteroid en C",
-            "description": "🎮 Juego 2D desarrollado con Raylib, Asteroids en C es un videojuego 2D inspirado en los clásicos de la era Super Nintendo, desarrollado en C utilizando la biblioteca Raylib. Hice este juego para probar mis conocimientos en el lenguaje C.",
+            "name": "Asteroid em C",
+            "description": "🎮 Jogo 2D Desenvolvido com Raylib, Asteroids em C é um jogo 2D inspirado nos clássicos da era Super Nintendo, desenvolvido em C utilizando a biblioteca Raylib. Fiz esse jogo para testar meus conhecimentos na linguagem C.",
             "version": "1.0.0",
             "tech_stack": [
                 "c",
@@ -27,8 +28,8 @@
             }
         },
         {
-            "name": "Pong en C",
-            "description": "🎮 Proyecto Pong hecho con el lenguaje C usando la biblioteca gráfica Raylib, un juego 2D inspirado en el clásico Ping Pong que fue el punto de partida para la creación de los videojuegos.",
+            "name": "Pong em C",
+            "description": "🎮 Projeto pong feito com linguagem C usando a lib gráfica Raylib, um jogo 2D inspirado nos clássico Ping Pong que foi o ponta-pé para a criação dos jogos.",
             "version": "1.0.0",
             "tech_stack": [
                 "c",
@@ -46,8 +47,8 @@
             }
         },
         {
-            "name": "Aplicación del Tiempo",
-            "description": "🌤️ Aplicación de Pronóstico del Tiempo en Jetpack Compose y FastAPI. WeatherApp es una aplicación de pronóstico del tiempo desarrollada con Jetpack Compose y un backend en FastAPI, utilizando la API de OpenWeather para proporcionar datos meteorológicos precisos y en tiempo real.",
+            "name": "App de Clima",
+            "description": "🌤️ Aplicativo de Previsão do Tempo em Jetpack Compose e FastAPI. O WeatherApp foi desenvolvido com Jetpack Compose e FastAPI, utilizando a API do OpenWeather para fornecer dados meteorológicos.",
             "version": "2.0.0",
             "tech_stack": [
                 "jetpackcompose",
@@ -65,8 +66,8 @@
             }
         },
         {
-            "name": "Aplicación TaskMan",
-            "description": "📋 Este es un proyecto de lista de tareas desarrollado con Flutter. Hice la aplicación con el objetivo de aprender el lenguaje Dart y el framework frontend Flutter, un excelente framework de UI declarativa.",
+            "name": "Aplicativo TaskMan",
+            "description": "📋 Este é um projeto de lista de tarefas desenvolvido com Flutter. Fiz o aplicativo com o objetivo de aprender a linguagem Dart e aprender o framework frontend Flutter, um otimo framework de ui declarativa.",
             "version": "2.0.0",
             "tech_stack": [
                 "flutter",

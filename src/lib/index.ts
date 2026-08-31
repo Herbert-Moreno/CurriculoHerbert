@@ -5,9 +5,9 @@ import { browser } from "$app/environment";
 
 export let global_page = writable("landing");
 
-import US_Json from '../lang/en_us.json';
-import ES_Json from '../lang/es_es.json';
-import PT_Json from '../lang/pt_br.json';
+import US_Json from './lang/en_us.json';
+import ES_Json from './lang/es_es.json';
+import PT_Json from './lang/pt_br.json';
 
 let page_locale = "en-US";
 

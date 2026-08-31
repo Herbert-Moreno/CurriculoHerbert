@@ -1,12 +1,18 @@
 @import 'tailwindcss';
-@plugin 'daisyui';
 
 :root {
     font-family: "Inter", sans-serif;
     --Primary-color: #190257;
     --Secundary-color: #241075;
     --Terciary-color: #79A3FC;
-    background-color: var(--Primary-color);
+    background-color: #080c1f; 
+  
+    /* Gradiente radial posicionado no centro-inferior */
+    background-image: radial-gradient(
+        circle at 50% 110%, /* Move o centro do círculo para baixo da tela */
+        #241075 0%,        /* Cor mais clara no ponto de origem (embaixo) */
+        #080c1f 97%        /* Transição suave para o escuro (no resto da tela) */
+    );
 }
 @theme {
     --animate-page_header: page_header_bounce 1s ease-in-out ;
@@ -32,4 +38,12 @@
             animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
         }
     }
+}
+
+.Background {
+    background-image: radial-gradient(
+        circle at 50% 110%, /* Move o centro do círculo para baixo da tela */
+        #241075 60%,        /* Cor mais clara no ponto de origem (embaixo) */
+        #080c1f 97%        /* Transição suave para o escuro (no resto da tela) */
+    );
 }
