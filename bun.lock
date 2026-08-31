@@ -8,9 +8,6 @@
         "@threlte/core": "^8.1.4",
         "@threlte/extras": "^9.4.5",
         "@threlte/gltf": "^3.0.1",
-        "bunx": "^0.1.0",
-        "npm": "^12.0.2",
-        "sharp": "^0.35.4",
         "svelte-awesome": "^3.3.5",
       },
       "devDependencies": {

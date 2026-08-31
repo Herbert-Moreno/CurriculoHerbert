@@ -28,9 +28,6 @@
 		"@sveltejs/adapter-static": "^3.0.9",
 		"@threlte/core": "^8.1.4",
 		"@threlte/extras": "^9.4.5",
-		"bunx": "^0.1.0",
-		"npm": "^12.0.2",
-		"sharp": "^0.35.4",
 		"svelte-awesome": "^3.3.5"
 	}
 }
